@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.vue.mapper.InterestMapper">
+
+	<select id="getInterestApt" parameterType="String" resultType="InterestAptDto">
+		select no, userid, dongName, aptName
+		from interestapt
+		where userid = #{userid}
+	</select>
+	
+	<insert id="addInterestApt" parameterType="InterestAptDto">
+		insert into interestapt(
+			userid, dongName, aptName
+		) values (
+			#{userid}, #{dongName}, #{aptName}
+		)
+	</insert>
+	
+	<delete id="removeInterestApt" parameterType="String">
+		delete 
+		from interestapt 
+		where userid = #{userid} and dongName = #{dongName} and aptName = #{aptName}
+	</delete>
+	
+	<select id="getCount" resultType="int">
+		select count(*)
+		from interestapt
+		where userid = #{userid} and dongName = #{dongName} and aptName = #{aptName}
+	</select>
+	
+</mapper>

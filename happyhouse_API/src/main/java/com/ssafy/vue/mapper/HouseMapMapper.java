@@ -1,0 +1,18 @@
+package com.ssafy.vue.mapper;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.ssafy.vue.dto.DongCodeDto;
+import com.ssafy.vue.dto.HouseInfoDto;
+import com.ssafy.vue.dto.SidoGugunCodeDto;
+
+public interface HouseMapMapper {
+
+	List<SidoGugunCodeDto> getSido() throws SQLException;
+	List<SidoGugunCodeDto> getGugunInSido(String sido) throws SQLException;
+	List<HouseInfoDto> getDongInGugun(String gugun) throws SQLException;
+	List<HouseInfoDto> getAptInDong(String dong) throws SQLException;
+	DongCodeDto getDongCode(String sidoName, String gugunName, String dongName) throws SQLException;
+	DongCodeDto getDongCode2(String dongName) throws SQLException;
+}

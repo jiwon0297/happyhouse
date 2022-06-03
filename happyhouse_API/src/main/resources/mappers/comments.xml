@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.vue.mapper.CommentsMapper">
+
+	<!-- 특정 게시물에 대한 댓글 전체 조회 -->
+	<select id="selectComments" resultType="comments">
+		select commentno, userid, comment, regtime, articleno
+		from comments
+		where articleno = #{articleno}
+		order by commentno desc
+	</select>
+	
+	<!-- 댓글 상세 조회, 필요한가? -->
+	<select id="selectCommentsByNo" resultType="comments">
+		select commentno, userid, comment, regtime, articleno
+		from comments 
+		where commentno = #{commentno}
+	</select>
+	
+	<!-- 특정 게시물에 대한 댓글 개수 세기 -->
+	<select id="selectCommentCount" parameterType="int" resultType="int">
+		select count(*)
+		from comments
+		where articleno = #{articleno}
+		order by commentno asc
+	</select>
+
+	<!-- 댓글 등록 -->
+	<insert id="insertComment" parameterType="comments">
+		insert into comments(
+			userid, comment, articleno
+		) values (
+			#{userid}, #{comment}, #{articleno}
+		)
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComment" parameterType="comments">
+		update comments 
+		   set comment = #{comment}
+		 where commentno = #{commentno}
+	</update>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComment" parameterType="int">
+		delete 
+		from comments 
+		where commentno = #{commentno}
+	</delete>
+
+</mapper>
+

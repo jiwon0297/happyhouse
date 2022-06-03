@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.vue.mapper.QnABoardMapper">
+
+	<!-- 게시글 전체 조회 -->
+	<select id="selectQnABoard" resultType="qnaboard">
+		select articleno, userid, subject, content, regtime, parentno
+		from qnaboard 
+		where parentno=0 and articleno!=0
+		order by articleno desc
+	</select>
+	
+	<!-- 게시글 상세 조회 -->
+	<select id="selectQnABoardByNo" resultType="qnaboard">
+		select articleno, subject, userid, content, regtime, parentno
+		from qnaboard 
+		where articleno = #{articleno}
+	</select>
+	
+	<!-- 게시글 상세 조회 -->
+	<select id="selectQnAAnswer" parameterType="int" resultType="qnaboard">
+		select articleno, subject, userid, content, regtime, parentno
+		from qnaboard 
+		where parentno=#{articleno}
+	</select>
+	
+	<!-- 답글 조회 -->
+	<select id="selectQnACount" parameterType="int" resultType="int">
+		select count(*)
+		from qnaboard 
+		where parentno=#{articleno}
+		order by articleno asc
+	</select>
+
+	<!-- 게시글 등록 -->
+	<insert id="insertQnABoard" parameterType="qnaboard">
+		insert into qnaboard(
+			subject, userid, content, parentno
+		) values (
+			#{subject}, #{userid}, #{content}, #{parentno}
+		)
+	</insert>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateQnABoard" parameterType="qnaboard">
+		update qnaboard 
+		   set subject = #{subject}, 
+		   	   userid = #{userid}, 
+		   	   content = #{content}
+		 where articleno = #{articleno}
+	</update>
+
+	<!-- 게시글 삭제 -->
+	<delete id="deleteQnABoard" parameterType="int">
+		delete 
+		from qnaboard 
+		where articleno = #{articleno}
+	</delete>
+
+</mapper>
+

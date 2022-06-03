@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.vue.mapper.CommBoardMapper">
+
+	<!-- 게시글 전체 조회 -->
+	<select id="selectCommBoard" resultType="commboard">
+		select articleno, userid, subject, content, regtime, savefile
+		from commboard
+		order by articleno desc
+	</select>
+	
+	<!-- 게시글 상세 조회 -->
+	<select id="selectCommBoardByNo" resultType="commboard">
+		select articleno, subject, userid, content, regtime, savefile
+		from commboard 
+		where articleno = #{articleno}
+	</select>
+	
+	<!-- 답글 조회 부분인데 필요없어서 삭제해야함 -->
+	<select id="selectCommAnswer" parameterType="int" resultType="commboard">
+		select articleno, subject, userid, content, regtime, savefile
+		from commboard
+	</select>
+	
+	<!-- 답글 개수 세는 부분인데 필요없어서 삭제해야함 -->
+	<select id="selectCommCount" parameterType="int" resultType="int">
+		select count(*)
+		from commboard
+		order by articleno asc
+	</select>
+
+	<!-- 게시글 등록, 첨부파일 넣는 부분 구현해야함 -->
+	<insert id="insertCommBoard" parameterType="commboard">
+		insert into commboard(
+			subject, userid, content, savefile
+		) values (
+			#{subject}, #{userid}, #{content}, #{savefile}
+		)
+	</insert>
+	
+	<!-- 게시글 수정, 첨부파일 수정 기능 추가해야함 -->
+	<update id="updateCommBoard" parameterType="commboard">
+		update commboard 
+		   set subject = #{subject}, 
+		   	   userid = #{userid}, 
+		   	   content = #{content},
+		   	   savefile = #{savefile}
+		 where articleno = #{articleno}
+	</update>
+
+	<!-- 게시글 삭제 -->
+	<delete id="deleteCommBoard" parameterType="int">
+		delete 
+		from commboard 
+		where articleno = #{articleno}
+	</delete>
+
+</mapper>
+
