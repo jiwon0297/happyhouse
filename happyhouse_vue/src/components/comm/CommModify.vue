@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2 style="text-align: center">글수정</h2>
+    <h2 style="text-align: center; font-family: 'GowunDodum-Regular'">
+      글수정
+    </h2>
     <hr />
     <br />
     <CommInputItem type="modify" />

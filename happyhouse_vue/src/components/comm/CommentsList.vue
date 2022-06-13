@@ -27,7 +27,7 @@
         </td>
         <td width="5%" style="text-align: right">
           <button
-            v-if="com.userid === userInfo.userid"
+            v-if="(com.userid === userInfo.userid)||(userInfo.userid === 'admin')"
             @click="deleteComment(com)"
             style="border-style: none; background-color: transparent"
           >

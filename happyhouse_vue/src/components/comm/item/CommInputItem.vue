@@ -19,6 +19,7 @@
               v-model="article.subject"
               type="text"
               required
+              style="text-align: center"
               placeholder="제목을 입력하세요."
             ></md-input>
           </md-field>
@@ -27,9 +28,14 @@
             rows="20"
             id="content"
             v-model="article.content"
-            style="border-color: lightgray; border-radius: 5px; width: 100%"
+            style="
+              border-color: lightgray;
+              border-radius: 5px;
+              width: 100%;
+              text-align: center;
+            "
           ></textarea>
-          <div>
+          <div style="text-align: left">
             <button
               type="button"
               style="

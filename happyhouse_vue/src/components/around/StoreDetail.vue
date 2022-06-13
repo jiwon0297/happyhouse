@@ -6,7 +6,9 @@
   >
     <tr>
       <td>
-        <h3>{{ store.bizesNm }} | {{ store.ksicNm }}</h3>
+        <h3 style="font-family: 'GowunDodum-Regular'">
+          {{ store.bizesNm }} | {{ store.ksicNm }}
+        </h3>
       </td>
     </tr>
     <tr class="mb-2 mt-1"></tr>

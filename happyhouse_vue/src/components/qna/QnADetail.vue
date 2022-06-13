@@ -1,16 +1,20 @@
 <template>
   <div>
     <div>
-      <h2 style="text-align: center">질문/답변</h2>
+      <h2 style="text-align: center; font-family: 'GowunDodum-Regular'">
+        질문/답변
+      </h2>
       <hr />
-      <div>
+      <div style="display: flex; justify-content: space-between">
         <md-button
+          align="left"
           class="md-default md-simple"
-          style="margin-top: 22px; border: 1px solid; text-align: left"
+          style="margin-top: 22px; border: 1px solid"
           @click="listArticle"
           >목록</md-button
         >
         <md-button
+          align="right"
           class="md-info md-simple"
           style="margin-top: 22px; border: 1px solid; float: right"
           v-if="replynum === 0 && userInfo.userid === 'admin'"
@@ -25,7 +29,13 @@
         <div class="md-layout-item md-size-100">
           <nav-tabs-card no-label>
             <template slot="content">
-              <h3 style="color: black; font-weight: bold">
+              <h3
+                style="
+                  color: black;
+                  font-weight: bold;
+                  font-family: 'GowunDodum-Regular';
+                "
+              >
                 [질문] {{ article.subject }}
               </h3>
               <p style="color: gray">
@@ -80,7 +90,13 @@
           <div class="md-layout-item md-size-100">
             <nav-tabs-card no-label>
               <template slot="content">
-                <h3 style="color: black; font-weight: bold">
+                <h3
+                  style="
+                    color: black;
+                    font-weight: bold;
+                    font-family: 'GowunDodum-Regular';
+                  "
+                >
                   [답변]{{ reply.subject }}
                 </h3>
                 <p style="color: gray">

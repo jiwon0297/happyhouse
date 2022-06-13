@@ -5,8 +5,10 @@
         <div class="md-layout-item">
           <div class="image-wrapper">
             <div class="brand">
-              <h1 style="font-size: 60pt">Community Board</h1>
-              <h4>지역커뮤니티</h4>
+              <h1 style="font-size: 60pt; font-family: 'GowunDodum-Regular'">
+                Community Board
+              </h1>
+              <h4 style="font-family: 'GowunDodum-Regular'">커뮤니티</h4>
             </div>
           </div>
         </div>

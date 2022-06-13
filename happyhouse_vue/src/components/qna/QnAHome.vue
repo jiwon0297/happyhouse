@@ -1,8 +1,10 @@
 <template>
   <div>
     <div class="title">
-      <h3>문의 목록</h3>
-      <h6 style="color: gray">자유롭게 문의해보세요</h6>
+      <h3 style="font-family: 'GowunDodum-Regular'">문의 목록</h3>
+      <h6 style="color: gray; font-family: 'GowunDodum-Regular'">
+        자유롭게 문의해보세요
+      </h6>
       <hr />
     </div>
     <div style="display: flex; justify-content: space-between">

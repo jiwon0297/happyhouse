@@ -1,8 +1,16 @@
 <template>
   <div>
     <div class="title">
-      <h3>지역커뮤니티</h3>
-      <h6 style="color: gray; margin-left: 10px">지역 사람들과 소통하세요</h6>
+      <h3 style="font-family: 'GowunDodum-Regular'">커뮤니티</h3>
+      <h6
+        style="
+          color: gray;
+          margin-left: 10px;
+          font-family: 'GowunDodum-Regular';
+        "
+      >
+        사람들과 자유롭게 소통해보세요
+      </h6>
       <hr />
     </div>
     <div style="display: flex; justify-content: space-between">

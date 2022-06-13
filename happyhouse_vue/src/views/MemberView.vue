@@ -5,7 +5,9 @@
         <div class="md-layout-item">
           <div class="image-wrapper">
             <div class="brand">
-              <h1 style="font-size: 60pt">Member Service</h1>
+              <h1 style="font-size: 60pt; font-family: 'GowunDodum-Regular'">
+                Member Service
+              </h1>
               <br />
             </div>
           </div>

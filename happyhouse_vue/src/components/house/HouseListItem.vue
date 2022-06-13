@@ -1,13 +1,7 @@
 <template>
   <div>
     <div>
-      <tr
-        class="md-table-row"
-        @click="selectHouse"
-        @mouseover="colorChange(true)"
-        @mouseout="colorChange(false)"
-        :class="{ 'mouse-over-bgcolor': isColor }"
-      >
+      <tr class="md-table-row fontbold" @click="selectHouse">
         <td>
           <div
             style="
@@ -28,8 +22,10 @@
         </td>
       </tr>
       <modal v-if="classicModal" @close="classicModalHide">
-        <template slot="header">
-          <h4 class="modal-title">아파트 상세 정보</h4>
+        <template slot="header" style="width: 10vw">
+          <h4 class="modal-title" style="font-family: 'GowunDodum-Regular'">
+            {{ house.아파트 }}아파트 상세 정보
+          </h4>
           <md-button
             class="md-simple md-just-icon md-round modal-default-button"
             @click="classicModalHide"
@@ -161,5 +157,9 @@ export default {
 }
 .mouse-over-bgcolor {
   background-color: lightblue;
+}
+
+.fontbold:hover {
+  font-weight: bold;
 }
 </style>

@@ -32,7 +32,7 @@
                         data-toggle="dropdown"
                       >
                         <i class="material-icons">house</i>
-                        <p>APT INFO ▼</p>
+                        <p style="font-size: 13pt">APT INFO ▼</p>
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>
@@ -72,7 +72,7 @@
                         data-toggle="dropdown"
                       >
                         <i class="material-icons">assignment </i>
-                        <p>BOARD ▼</p>
+                        <p style="font-size: 13pt">BOARD ▼</p>
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>
@@ -84,7 +84,7 @@
                         <li>
                           <router-link :to="{ name: 'comm' }">
                             <i class="material-icons">question_answer</i>
-                            <p>지역커뮤니티</p>
+                            <p>커뮤니티</p>
                           </router-link>
                         </li>
                         <li>
@@ -111,11 +111,13 @@
                         data-toggle="dropdown"
                       >
                         <i class="material-icons">account_circle</i>
-                        <p v-if="userInfo">
+                        <p v-if="userInfo" style="font-size: 13pt">
                           {{ userInfo.username }}({{ userInfo.userid }})님
                           환영합니다. ▼
                         </p>
-                        <p v-else>로그인 후 이용해주세요. ▼</p>
+                        <p v-else style="font-size: 13pt">
+                          로그인 후 이용해주세요. ▼
+                        </p>
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>

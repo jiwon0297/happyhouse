@@ -5,8 +5,12 @@
         <div class="md-layout-item">
           <div class="image-wrapper">
             <div class="brand">
-              <h1 style="font-size: 60pt">Apt Service</h1>
-              <h4>아파트 실거래가 조회</h4>
+              <h1 style="font-size: 60pt; font-family: 'GowunDodum-Regular'">
+                Apt Service
+              </h1>
+              <h4 style="font-family: 'GowunDodum-Regular'">
+                아파트 실거래가 조회
+              </h4>
               <br />
               <house-search-bar @dongname="dongname"></house-search-bar>
             </div>

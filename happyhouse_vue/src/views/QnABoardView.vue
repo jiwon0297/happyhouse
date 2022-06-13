@@ -5,8 +5,12 @@
         <div class="md-layout-item">
           <div class="image-wrapper">
             <div class="brand">
-              <h1 style="font-size: 60pt">QnA</h1>
-              <h4>무엇이든 물어보세요</h4>
+              <h1 style="font-size: 60pt; font-family: 'GowunDodum-Regular'">
+                QnA
+              </h1>
+              <h4 style="font-family: 'GowunDodum-Regular'">
+                무엇이든 물어보세요
+              </h4>
             </div>
           </div>
         </div>

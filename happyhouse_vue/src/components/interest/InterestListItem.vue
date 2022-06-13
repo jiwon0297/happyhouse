@@ -1,70 +1,49 @@
 <template>
   <div>
-    <div>
+    <br />
+    <table style="text-align: left; height: 100%">
       <tr
-        class="m-2"
+        class="colorchange"
         @click="selectApt(interestlist.dongName, interestlist.aptName)"
         @mouseover="colorChange(true)"
         @mouseout="colorChange(false)"
         :class="{ 'mouse-over-bgcolor': isColor }"
+        style="text-align: left"
       >
-        <td>[{{ interestlist.dongName.trim() }}] {{ interestlist.aptName }}</td>
+        <td>❤︎ [{{ interestlist.dongName.trim() }}]</td>
+        <td>{{ interestlist.aptName }}아파트</td>
+        <td>
+          <button
+            style="
+              border: none;
+              background-color: transparent;
+              color: gray;
+              margin-left: 5px;
+            "
+            type="button"
+            @click="deleteinterest(interestlist)"
+          >
+            X
+          </button>
+        </td>
       </tr>
-      <modal v-if="classicModal" @close="classicModalHide">
-        <template slot="header">
-          <h4 class="modal-title">관심매물 상세 정보</h4>
-          <md-button
-            class="md-simple md-just-icon md-round modal-default-button"
-            @click="classicModalHide"
-          >
-            <md-icon>clear</md-icon>
-          </md-button>
-        </template>
-
-        <template slot="body">
-          <house-detail />
-        </template>
-
-        <template slot="footer">
-          <md-button
-            v-if="isLiked"
-            class="md-simple md-just-icon md-rose"
-            @click="likeChange(false)"
-          >
-            <i class="md-icon md-icon-font md-theme-default">favorite</i>
-          </md-button>
-          <md-button
-            v-if="!isLiked"
-            class="md-simple md-just-icon md-default"
-            @click="likeChange(true)"
-          >
-            <i class="md-icon md-icon-font md-theme-default">favorite</i>
-          </md-button>
-          <md-button class="md-danger md-simple" @click="classicModalHide"
-            >Close</md-button
-          >
-        </template>
-      </modal>
-    </div>
+    </table>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
-import HouseDetail from "@/components/house/HouseDetail.vue";
-import { Modal } from "@/components";
+import HouseDetail from "@/components/interest/HouseDetail.vue";
 import { mapState } from "vuex";
 import http from "@/api/http";
 export default {
   name: "InterestListItem",
   components: {
     HouseDetail,
-    Modal,
   },
   data() {
     return {
       isColor: false,
-      classicModal: false,
       isLiked: false,
       house: Object,
     };
@@ -91,8 +70,6 @@ export default {
         }
       });
 
-      this.classicModal = true;
-      //∂this.detailStore(this.store);
       http
         .get(`/map/dongcode2/` + dongName)
         .then(({ data }) => {
@@ -109,34 +86,21 @@ export default {
         });
     },
 
-    likeChange(flag, aptName) {
-      this.isLiked = flag;
-      if (this.isLiked == true) {
-        // 유저의 관심매물에 추가
-        http
-          .post(`/interest/apt`, {
-            userid: this.userInfo.userid,
-            dongName: this.house.법정동,
-            aptName: this.house.아파트,
-          })
-          .then(({ data }) => {
-            let msg = "등록 처리시 문제가 발생했습니다.";
-            if (data === "success") {
-              msg = "등록이 완료되었습니다.";
-            }
-          });
-      } else {
+    deleteinterest(interestlist) {
+      if (confirm("정말로 삭제하시겠습니까?")) {
         // 유저의 관심매물에서 삭제
         const params = {
           userid: this.userInfo.userid,
-          dongName: this.house.법정동,
-          aptName: this.house.아파트,
+          dongName: interestlist.dongName,
+          aptName: interestlist.aptName,
         };
 
         http.delete(`/interest/apt`, { params }).then(({ data }) => {
           let msg = "삭제 처리시 문제가 발생했습니다.";
           if (data === "success") {
             msg = "삭제가 완료되었습니다.";
+            alert("삭제가 완료되었습니다.");
+            this.$router.go(0);
           }
         });
       }
@@ -145,13 +109,13 @@ export default {
     colorChange(flag) {
       this.isColor = flag;
     },
-    classicModalHide() {
-      this.classicModal = false;
-      this.$router.go(0);
-    },
   },
   created() {},
 };
 </script>
 
-<style></style>
+<style scoped>
+.colorchange:hover {
+  font-weight: bold;
+}
+</style>

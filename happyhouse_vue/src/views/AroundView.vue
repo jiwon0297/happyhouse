@@ -5,8 +5,12 @@
         <div class="md-layout-item">
           <div class="image-wrapper">
             <div class="brand">
-              <h1 style="font-size: 60pt">Around Service</h1>
-              <h4>관심 지역 주변 상점 조회</h4>
+              <h1 style="font-size: 60pt; font-family: 'GowunDodum-Regular'">
+                Around Service
+              </h1>
+              <h4 style="font-family: 'GowunDodum-Regular'">
+                관심 지역 주변 상점 조회
+              </h4>
             </div>
           </div>
         </div>

@@ -1,8 +1,12 @@
 <template>
   <div>
     <div>
-      <h4 style="font-weight: bold">관심 지역 리스트</h4>
-      <h6>회원가입시 선택한 주소값은 기본값으로 들어갑니다.</h6>
+      <h3 style="font-weight: boldl; font-family: 'GowunDodum-Regular'">
+        관심 지역 리스트
+      </h3>
+      <h6 style="font-family: 'GowunDodum-Regular'">
+        회원가입시 선택한 주소값은 기본값으로 들어갑니다.
+      </h6>
       <hr />
       <div
         style="
@@ -129,7 +133,9 @@
     </div>
     <br />
     <hr />
-    <h3 style="font-weight: bold">{{ infoname }}의 주변상점 정보입니다.</h3>
+    <h3 style="font-weight: bold; font-family: 'GowunDodum-Regular'">
+      {{ infoname }}의 주변상점 정보입니다.
+    </h3>
     <br />
     <div style="display: flex; justify-content: space-between">
       <div align="left" style="width: 52%">
@@ -144,13 +150,38 @@
               >
                 <div v-if="paginatedData.length != 0">
                   <td class="md-table-cell">
-                    <store-list-item
-                      v-for="(store, index) in paginatedData"
-                      :key="index"
-                      :store="store"
-                      :index="index + 1 + pageNum * 5"
-                      :flag="flag"
-                    />
+                    <div v-for="(store, index) in paginatedData" :key="index">
+                      <tr
+                        class="md-table-row"
+                        @click="selectStore(store)"
+                        @mouseover="colorChange(true)"
+                        @mouseout="colorChange(false)"
+                        :class="{ 'mouse-over-bgcolor': isColor }"
+                      >
+                        <td>
+                          <div
+                            style="
+                              background-color: #299e4c;
+                              color: white;
+                              width: 20px;
+                              height: 20px;
+                              border-radius: 5px;
+                              text-align: center;
+                              padding-top: 0.5px;
+                            "
+                          >
+                            {{ index + 1 + pageNum * 5 }}
+                          </div>
+                        </td>
+                        <td class="md-table-cell" v-if="flag">
+                          {{ store.bizesNm }}
+                        </td>
+
+                        <td class="md-table-cell" v-else>
+                          [{{ store.indsLclsNm }}] {{ store.bizesNm }}
+                        </td>
+                      </tr>
+                    </div>
                   </td>
                   <div style="text-align: center; margin-top: 20px">
                     <md-button
@@ -175,7 +206,9 @@
                   </div>
                 </div>
                 <div v-else>
-                  <h4>상점 목록이 없습니다.</h4>
+                  <h4 style="font-family: 'GowunDodum-Regular'">
+                    상점 목록이 없습니다.
+                  </h4>
                 </div>
               </md-tab>
 
@@ -187,13 +220,38 @@
               >
                 <div v-if="paginatedData2.length != 0">
                   <td class="md-table-cell">
-                    <store-list-item
-                      v-for="(store, index) in paginatedData2"
-                      :key="index"
-                      :store="store"
-                      :index="index + 1 + pageNum * 5"
-                      :flag="flag"
-                    />
+                    <div v-for="(store, index) in paginatedData2" :key="index">
+                      <tr
+                        class="md-table-row"
+                        @click="selectStore(store)"
+                        @mouseover="colorChange(true)"
+                        @mouseout="colorChange(false)"
+                        :class="{ 'mouse-over-bgcolor': isColor }"
+                      >
+                        <td>
+                          <div
+                            style="
+                              background-color: #299e4c;
+                              color: white;
+                              width: 20px;
+                              height: 20px;
+                              border-radius: 5px;
+                              text-align: center;
+                              padding-top: 0.5px;
+                            "
+                          >
+                            {{ index + 1 + pageNum * 5 }}
+                          </div>
+                        </td>
+                        <td class="md-table-cell" v-if="flag">
+                          {{ store.bizesNm }}
+                        </td>
+
+                        <td class="md-table-cell" v-else>
+                          [{{ store.indsLclsNm }}] {{ store.bizesNm }}
+                        </td>
+                      </tr>
+                    </div>
                   </td>
                   <div style="text-align: center; margin-top: 20px">
                     <md-button
@@ -218,7 +276,9 @@
                   </div>
                 </div>
                 <div v-else>
-                  <h4>상점 목록이 없습니다.</h4>
+                  <h4 style="font-family: 'GowunDodum-Regular'">
+                    상점 목록이 없습니다.
+                  </h4>
                 </div>
               </md-tab>
 
@@ -230,13 +290,38 @@
               >
                 <div v-if="paginatedData2.length != 0">
                   <td class="md-table-cell">
-                    <store-list-item
-                      v-for="(store, index) in paginatedData2"
-                      :key="index"
-                      :store="store"
-                      :index="index + 1 + pageNum * 5"
-                      :flag="flag"
-                    />
+                    <div v-for="(store, index) in paginatedData2" :key="index">
+                      <tr
+                        class="md-table-row"
+                        @click="selectStore(store)"
+                        @mouseover="colorChange(true)"
+                        @mouseout="colorChange(false)"
+                        :class="{ 'mouse-over-bgcolor': isColor }"
+                      >
+                        <td>
+                          <div
+                            style="
+                              background-color: #299e4c;
+                              color: white;
+                              width: 20px;
+                              height: 20px;
+                              border-radius: 5px;
+                              text-align: center;
+                              padding-top: 0.5px;
+                            "
+                          >
+                            {{ index + 1 + pageNum * 5 }}
+                          </div>
+                        </td>
+                        <td class="md-table-cell" v-if="flag">
+                          {{ store.bizesNm }}
+                        </td>
+
+                        <td class="md-table-cell" v-else>
+                          [{{ store.indsLclsNm }}] {{ store.bizesNm }}
+                        </td>
+                      </tr>
+                    </div>
                   </td>
                   <div style="text-align: center; margin-top: 20px">
                     <md-button
@@ -261,7 +346,9 @@
                   </div>
                 </div>
                 <div v-else>
-                  <h4>상점 목록이 없습니다.</h4>
+                  <h4 style="font-family: 'GowunDodum-Regular'">
+                    상점 목록이 없습니다.
+                  </h4>
                 </div>
               </md-tab>
 
@@ -273,13 +360,38 @@
               >
                 <div v-if="paginatedData2.length != 0">
                   <td class="md-table-cell">
-                    <store-list-item
-                      v-for="(store, index) in paginatedData2"
-                      :key="index"
-                      :store="store"
-                      :index="index + 1 + pageNum * 5"
-                      :flag="flag"
-                    />
+                    <div v-for="(store, index) in paginatedData2" :key="index">
+                      <tr
+                        class="md-table-row"
+                        @click="selectStore(store)"
+                        @mouseover="colorChange(true)"
+                        @mouseout="colorChange(false)"
+                        :class="{ 'mouse-over-bgcolor': isColor }"
+                      >
+                        <td>
+                          <div
+                            style="
+                              background-color: #299e4c;
+                              color: white;
+                              width: 20px;
+                              height: 20px;
+                              border-radius: 5px;
+                              text-align: center;
+                              padding-top: 0.5px;
+                            "
+                          >
+                            {{ index + 1 + pageNum * 5 }}
+                          </div>
+                        </td>
+                        <td class="md-table-cell" v-if="flag">
+                          {{ store.bizesNm }}
+                        </td>
+
+                        <td class="md-table-cell" v-else>
+                          [{{ store.indsLclsNm }}] {{ store.bizesNm }}
+                        </td>
+                      </tr>
+                    </div>
                   </td>
                   <div style="text-align: center; margin-top: 20px">
                     <md-button
@@ -304,7 +416,9 @@
                   </div>
                 </div>
                 <div v-else>
-                  <h4>상점 목록이 없습니다.</h4>
+                  <h4 style="font-family: 'GowunDodum-Regular'">
+                    상점 목록이 없습니다.
+                  </h4>
                 </div>
               </md-tab>
 
@@ -316,13 +430,38 @@
               >
                 <div v-if="paginatedData2.length != 0">
                   <td class="md-table-cell">
-                    <store-list-item
-                      v-for="(store, index) in paginatedData2"
-                      :key="index"
-                      :store="store"
-                      :index="index + 1 + pageNum * 5"
-                      :flag="flag"
-                    />
+                    <div v-for="(store, index) in paginatedData2" :key="index">
+                      <tr
+                        class="md-table-row"
+                        @click="selectStore(store)"
+                        @mouseover="colorChange(true)"
+                        @mouseout="colorChange(false)"
+                        :class="{ 'mouse-over-bgcolor': isColor }"
+                      >
+                        <td>
+                          <div
+                            style="
+                              background-color: #299e4c;
+                              color: white;
+                              width: 20px;
+                              height: 20px;
+                              border-radius: 5px;
+                              text-align: center;
+                              padding-top: 0.5px;
+                            "
+                          >
+                            {{ index + 1 + pageNum * 5 }}
+                          </div>
+                        </td>
+                        <td class="md-table-cell" v-if="flag">
+                          {{ store.bizesNm }}
+                        </td>
+
+                        <td class="md-table-cell" v-else>
+                          [{{ store.indsLclsNm }}] {{ store.bizesNm }}
+                        </td>
+                      </tr>
+                    </div>
                   </td>
                   <div style="text-align: center; margin-top: 20px">
                     <md-button
@@ -347,7 +486,9 @@
                   </div>
                 </div>
                 <div v-else>
-                  <h4>상점 목록이 없습니다.</h4>
+                  <h4 style="font-family: 'GowunDodum-Regular'">
+                    상점 목록이 없습니다.
+                  </h4>
                 </div>
               </md-tab>
 
@@ -359,13 +500,38 @@
               >
                 <div v-if="paginatedData2.length != 0">
                   <td class="md-table-cell">
-                    <store-list-item
-                      v-for="(store, index) in paginatedData2"
-                      :key="index"
-                      :store="store"
-                      :index="index + 1 + pageNum * 5"
-                      :flag="flag"
-                    />
+                    <div v-for="(store, index) in paginatedData2" :key="index">
+                      <tr
+                        class="md-table-row"
+                        @click="selectStore(store)"
+                        @mouseover="colorChange(true)"
+                        @mouseout="colorChange(false)"
+                        :class="{ 'mouse-over-bgcolor': isColor }"
+                      >
+                        <td>
+                          <div
+                            style="
+                              background-color: #299e4c;
+                              color: white;
+                              width: 20px;
+                              height: 20px;
+                              border-radius: 5px;
+                              text-align: center;
+                              padding-top: 0.5px;
+                            "
+                          >
+                            {{ index + 1 + pageNum * 5 }}
+                          </div>
+                        </td>
+                        <td class="md-table-cell" v-if="flag">
+                          {{ store.bizesNm }}
+                        </td>
+
+                        <td class="md-table-cell" v-else>
+                          [{{ store.indsLclsNm }}] {{ store.bizesNm }}
+                        </td>
+                      </tr>
+                    </div>
                   </td>
                   <div style="text-align: center; margin-top: 20px">
                     <md-button
@@ -389,6 +555,11 @@
                     </md-button>
                   </div>
                 </div>
+                <div v-else>
+                  <h4 style="font-family: 'GowunDodum-Regular'">
+                    상점 목록이 없습니다.
+                  </h4>
+                </div>
               </md-tab>
             </md-tabs>
           </template>
@@ -396,24 +567,49 @@
       </div>
       <div id="map" align="right"></div>
     </div>
+    <modal v-if="classicModal" @close="classicModalHide">
+      <template slot="header">
+        <h4 class="modal-title" style="font-family: 'GowunDodum-Regular'">
+          가게 정보
+        </h4>
+        <md-button
+          class="md-simple md-just-icon md-round modal-default-button"
+          @click="classicModalHide"
+        >
+          <md-icon>clear</md-icon>
+        </md-button>
+      </template>
+
+      <template slot="body">
+        <store-detail />
+      </template>
+
+      <template slot="footer">
+        <md-button class="md-danger md-simple" @click="classicModalHide"
+          >Close</md-button
+        >
+      </template>
+    </modal>
   </div>
 </template>
 
 <script>
 import http from "@/api/http";
-import StoreListItem from "@/components/around/StoreListItem.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
 import { Slider } from "@/components";
 import { Tabs } from "@/components";
+import { Modal } from "@/components";
 import { NavTabsCard } from "@/components";
+import StoreDetail from "@/components/around/StoreDetail.vue";
 
 export default {
   name: "StoreList",
   components: {
-    StoreListItem,
     Slider,
     Tabs,
     NavTabsCard,
+    Modal,
+    StoreDetail,
   },
   data() {
     return {
@@ -435,6 +631,8 @@ export default {
       pageNum: 0,
       flag: false,
       infoname: "",
+      isColor: false,
+      classicModal: false,
     };
   },
   props: {
@@ -496,6 +694,7 @@ export default {
       "getDong",
       "getUserInfo",
       "getStoreList",
+      "detailStore",
     ]),
     ...mapMutations([
       "CLEAR_SIDO_LIST",
@@ -590,6 +789,7 @@ export default {
             const arr = {
               title: store.bizesNm,
               address: store.rdnmAdr,
+              cate: store.indsLclsNm,
             };
             markerPositions1.push(arr);
           });
@@ -598,6 +798,7 @@ export default {
             const arr = {
               title: store.bizesNm,
               address: store.rdnmAdr,
+              cate: store.indsLclsNm,
             };
             markerPositions1.push(arr);
           });
@@ -626,9 +827,21 @@ export default {
               title: position.title,
             });
 
+            let content = `
+            <div style="position: relative; width: 350px; margin:auto; margin-right:30px; margin-top:5px; border-radius: 20px;">
+            <div style="margin: 0; padding: 0; font-size: 16px;font-weight: bold; text-align:center">${position.title}</div>
+            <ul style="list-style:none; text-align:left">
+              <li>
+                업종 : ${position.cate}
+              </li>
+              <li>
+                주소 :  ${position.address}
+              </li>
+            </ul>
+            </div>`;
             const infowindow = new kakao.maps.InfoWindow({
               removable: true,
-              content: `<div style="padding: 5px;">${position.title}</div>`,
+              content: content,
             });
             kakao.maps.event.addListener(marker, "mouseover", () => {
               infowindow.open(mapp, marker);
@@ -758,6 +971,18 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+
+    selectStore(store) {
+      // this.$store.dispatch("getHouse", this.house);
+      this.classicModal = true;
+      this.detailStore(store);
+    },
+    colorChange(flag) {
+      this.isColor = flag;
+    },
+    classicModalHide() {
+      this.classicModal = false;
     },
   },
 

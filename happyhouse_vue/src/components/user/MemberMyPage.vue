@@ -36,7 +36,9 @@
         </div>
         <div class="name" style="text-align: center">
           <h3 class="title">{{ userInfo.userid }}</h3>
-          <h6>{{ userInfo.username }}</h6>
+          <h6 style="font-family: 'GowunDodum-Regular'">
+            {{ userInfo.username }}
+          </h6>
         </div>
       </div>
     </div>
@@ -50,21 +52,15 @@
         <template slot="content">
           <md-tabs class="md-danger" md-alignment="left">
             <md-tab id="tab-home" md-label="My Info" md-icon="person">
-              <h4>Email</h4>
+              <h4 style="font-family: 'GowunDodum-Regular'">Email</h4>
               <p>{{ userInfo.email }}</p>
-              <h4>Address</h4>
+              <h4 style="font-family: 'GowunDodum-Regular'">Address</h4>
               <p>
                 {{ userInfo.sidoName }} {{ userInfo.gugunName }}
                 {{ userInfo.dongName }}
               </p>
               <hr />
-              <p
-                style="
-                  font-family: serif;
-                  font-style: Italic;
-                  font-weight: bold;
-                "
-              >
+              <p class="membersince">
                 Member Since {{ userInfo.joindate | dateFormat() }}
               </p>
             </md-tab>
@@ -72,6 +68,7 @@
             <md-tab id="tab-pages" md-label="Favorites" md-icon="favorite">
               <div v-if="interestapts.length != 0">
                 <div v-for="(apt, index) in interestapts" :key="index">
+                  <br />
                   <button
                     type="button"
                     style="border-style: none; background-color: transparent"
@@ -80,16 +77,21 @@
                     @mouseout="colorChange(false)"
                     :class="{ 'mouse-over-bgcolor': isColor }"
                   >
-                    <i class="md-icon md-icon-font md-theme-default"
+                    <i
+                      class="md-icon md-icon-font md-theme-default"
+                      style="color: #e31b5e"
                       >favorite</i
                     >
                     {{ apt.dongName }} | {{ apt.aptName }}
                   </button>
                 </div>
+                <br />
               </div>
 
               <div v-else>
-                <h4>등록된 관심 매물이 없습니다.</h4>
+                <h4 style="font-family: 'GowunDodum-Regular'">
+                  등록된 관심 매물이 없습니다.
+                </h4>
               </div>
             </md-tab>
           </md-tabs>
@@ -521,6 +523,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@1&display=swap");
+
+.membersince {
+  font-family: "Tiro Bangla", serif;
+}
+
 .section {
   padding: 0;
 }

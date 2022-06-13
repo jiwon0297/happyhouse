@@ -1,34 +1,13 @@
 <template>
   <div style="text-align: center">
-    <h3>로그인</h3>
+    <h3 style="font-family: 'GowunDodum-Regular'">로그인</h3>
     <div class="md-layout">
       <div class="md-layout-item md-size-70" style="margin: 0 auto">
         <form @submit="onSubmit" @reset="onReset">
           <login-card header-color="orange">
+            <br />
             <h4 slot="title" class="card-title">Sign Up</h4>
-            <md-button
-              slot="buttons"
-              href="javascript:void(0)"
-              class="md-just-icon md-simple md-white"
-            >
-              <i class="fab fa-facebook-square"></i>
-            </md-button>
-            <md-button
-              slot="buttons"
-              href="javascript:void(0)"
-              class="md-just-icon md-simple md-white"
-            >
-              <i class="fab fa-twitter"></i>
-            </md-button>
-            <md-button
-              slot="buttons"
-              href="javascript:void(0)"
-              class="md-just-icon md-simple md-white"
-            >
-              <i class="fab fa-google-plus-g"></i>
-            </md-button>
-            <p slot="description" class="description">사이트에서 가입하기</p>
-
+            <br />
             <md-field
               :class="[
                 iderr === true ? 'md-form group md-error' : 'md-form group',

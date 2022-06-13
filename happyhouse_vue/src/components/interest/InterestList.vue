@@ -1,17 +1,23 @@
 <template>
-  <div>
-    <div v-if="interestlists.length != 0">
-      <div>
-        <interest-list-item
-          v-for="(interestlist, index) in interestlists"
-          :key="index"
-          :interestlist="interestlist"
-        />
-      </div>
-    </div>
-    <div v-else>
-      <h4>관심매물이 없습니다.</h4>
-    </div>
+  <div v-if="interestlists.length != 0">
+    <tr>
+      <interest-list-item
+        v-for="(interestlist, index) in interestlists"
+        :key="index"
+        :interestlist="interestlist"
+      />
+    </tr>
+  </div>
+  <div v-else>
+    <td
+      style="
+        font-family: 'GowunDodum-Regular';
+        text-align: center;
+        margin: auto;
+      "
+    >
+      관심매물이 없습니다.
+    </td>
   </div>
 </template>
 

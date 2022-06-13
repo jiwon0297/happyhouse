@@ -1,9 +1,11 @@
 <template>
   <div>
     <div>
-      <h2 style="text-align: center">공지사항</h2>
+      <h2 style="text-align: center; font-family: 'GowunDodum-Regular'">
+        공지사항
+      </h2>
       <hr />
-      <div>
+      <div style="text-align: left">
         <md-button
           variant="success"
           class="md-success md-simple"
@@ -18,15 +20,22 @@
         <div class="md-layout-item md-size-100">
           <nav-tabs-card no-label>
             <template slot="content">
-              <h3 style="color: black; font-weight: bold">
+              <h3
+                style="
+                  color: black;
+                  font-weight: bold;
+                  font-family: 'GowunDodum-Regular';
+                "
+              >
                 [공지] {{ article.subject }}
               </h3>
-              <p style="color: gray">
+              <p style="color: gray; text-align: right">
                 {{ article.userid }}
                 {{ article.regtime }}
               </p>
-              {{ article.content }}
-              <div v-if="article.savefile">
+              <hr />
+              <p style="font-size: 15pt">{{ article.content }}</p>
+              <div v-if="article.savefile" style="width: 50%; margin: auto">
                 <img :src="article.savefile" />
               </div>
             </template>
@@ -41,7 +50,7 @@
           @click="moveModifyArticle"
           variant="default"
           class="md-default md-simple"
-          style="border: 1px solid"
+          style="border: 1px solid; margin-right: 1rem"
         >
           수정
         </md-button>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h3 style="font-weight: bold">{{ dongName }}의 아파트 정보입니다.</h3>
+    <h3 style="font-weight: bold; font-family: 'GowunDodum-Regular'">
+      {{ dongName }}의 아파트 정보입니다.
+    </h3>
     <hr />
 
     <div
@@ -130,11 +132,15 @@
           </div>
 
           <div v-else>
-            <h4>검색 목록이 없습니다.</h4>
+            <h4 style="font-family: 'GowunDodum-Regular'">
+              검색 목록이 없습니다.
+            </h4>
           </div>
         </div>
         <div v-else>
-          <h4>주택 목록이 없습니다.</h4>
+          <h4 style="font-family: 'GowunDodum-Regular'">
+            아파트 목록이 없습니다.
+          </h4>
         </div>
       </div>
       <div id="map" align="right"></div>
@@ -296,6 +302,7 @@ export default {
                 house.도로명건물본번호코드 +
                 "-" +
                 house.도로명건물부번호코드,
+              price: house.거래금액 + "만원",
             };
             markerPositions1.push(arr);
           });
@@ -309,6 +316,7 @@ export default {
                 house.도로명건물본번호코드 +
                 "-" +
                 house.도로명건물부번호코드,
+              price: house.거래금액 + "만원",
             };
             markerPositions1.push(arr);
           });
@@ -337,6 +345,7 @@ export default {
               house.도로명건물본번호코드 +
               "-" +
               house.도로명건물부번호코드,
+            price: house.거래금액 + "만원",
           };
           markerPositions1.push(arr);
         });
@@ -350,6 +359,7 @@ export default {
               house.도로명건물본번호코드 +
               "-" +
               house.도로명건물부번호코드,
+            price: house.거래금액 + "만원",
           };
           markerPositions1.push(arr);
         });
@@ -376,10 +386,21 @@ export default {
               position: coords,
               title: position.title,
             });
-
+            let content = `
+            <div style="position: relative; width: 300px; margin:auto; margin-right:30px; margin-top:5px; border-radius: 20px;">
+            <div style="margin: 0; padding: 0; font-size: 16px;font-weight: bold; text-align:center">${position.title}</div>
+            <ul style="list-style:none; text-align:left">
+              <li>
+                주소 : ${position.address}
+              </li>
+              <li>
+                최신거래금액 :  ${position.price}
+              </li>
+            </ul>
+            </div>`;
             const infowindow = new kakao.maps.InfoWindow({
               removable: true,
-              content: `<div style="padding: 5px;">${position.title}</div>`,
+              content: content,
             });
             kakao.maps.event.addListener(marker, "mouseover", () => {
               infowindow.open(mapp, marker);

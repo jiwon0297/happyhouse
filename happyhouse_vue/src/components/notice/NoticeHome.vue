@@ -1,8 +1,16 @@
 <template>
   <div>
     <div class="title">
-      <h3>공지사항 목록</h3>
-      <h6 style="color: gray; margin-left: 10px">공지는 꼭 지켜주세요~!</h6>
+      <h3 style="font-family: 'GowunDodum-Regular'">공지사항 목록</h3>
+      <h6
+        style="
+          color: gray;
+          margin-left: 10px;
+          font-family: 'GowunDodum-Regular';
+        "
+      >
+        공지는 꼭 지켜주세요~!
+      </h6>
       <hr />
     </div>
     <div style="display: flex; justify-content: space-between">

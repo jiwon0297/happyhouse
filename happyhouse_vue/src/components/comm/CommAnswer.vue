@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2 style="text-align: center">답변작성</h2>
+    <h2 style="text-align: center; font-family: 'GowunDodum-Regular'">
+      답변작성
+    </h2>
     <hr />
     <br />
     <CommInputItem type="comm" />

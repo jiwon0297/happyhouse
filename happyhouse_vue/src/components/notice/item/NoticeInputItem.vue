@@ -3,22 +3,21 @@
     <div class="md-layout">
       <div class="md-layout-item md-size-100">
         <form @submit="onSubmit" @reset="onReset">
-          <md-field>
-            <md-input
-              type="hidden"
-              id="userid"
-              disabled
-              v-model="article.userid"
-              required
-              placeholder="작성자"
-            ></md-input>
-          </md-field>
+          <input
+            type="hidden"
+            id="userid"
+            disabled
+            v-model="article.userid"
+            required
+            placeholder="작성자"
+          />
           <md-field>
             <md-input
               id="subject"
               v-model="article.subject"
               type="text"
               required
+              style="text-align: center"
               placeholder="제목을 입력하세요."
             ></md-input>
           </md-field>
@@ -27,9 +26,14 @@
             rows="20"
             id="content"
             v-model="article.content"
-            style="border-color: lightgray; border-radius: 5px; width: 100%"
+            style="
+              border-color: lightgray;
+              border-radius: 5px;
+              width: 100%;
+              text-align: center;
+            "
           ></textarea>
-          <div>
+          <div style="text-align: left">
             <button
               type="button"
               style="
