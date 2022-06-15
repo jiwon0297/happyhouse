@@ -15,8 +15,8 @@
 
 |이름|역할|
 |---|---|
-|차유진|1. 페이지 UI/디자인 구성<br>2. 게시판 기능(Community/QnA/Notice)<br>3. 아파트 가격 필터 및 서칭 <br>4. 오늘의 뉴스 <br>5. 관심매물 <br>6. 데이터베이스 구축|
-|박지원|1. 회원관리<br>2. 공공API관련 기능(아파트/주변상권)<br>3. 오늘의 날씨 <br>4. 지도 서비스<br>5. 관심지역 <br>6. 이미지 업로드 <br>7. 데이터베이스 구축
+|[차유진](https://github.com/yoojincha)|1. 페이지 UI/디자인 구성<br>2. 게시판 기능(Community/QnA/Notice)<br>3. 아파트 가격 필터 및 서칭 <br>4. 오늘의 뉴스 <br>5. 관심매물 <br>6. 데이터베이스 구축|
+|[박지원](https://github.com/jiwon0297)|1. 회원관리<br>2. 공공API관련 기능(아파트/주변상권)<br>3. 오늘의 날씨 <br>4. 지도 서비스<br>5. 관심지역 <br>6. 이미지 업로드 <br>7. 데이터베이스 구축
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/63248831/171776492-69237a2e-d30d-4048-8fd4-9faeee01b714.png">
 
